@@ -1,35 +1,25 @@
-import static org.junit.Assert.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class QuantityMeasurementAppTest {
+class QuantityMeasurementAppTest {
 
     @Test
-    public void testEquality_SameValue() {
-        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-        QuantityMeasurementApp.Feet f2 = new QuantityMeasurementApp.Feet(1.0);
-
-        assertTrue(f1.equals(f2));
+    void testFeetEquality_SameValue() {
+        assertTrue(QuantityMeasurementApp.compareFeet(1.0, 1.0));
     }
 
     @Test
-    public void testEquality_DifferentValue() {
-        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-        QuantityMeasurementApp.Feet f2 = new QuantityMeasurementApp.Feet(2.0);
-
-        assertFalse(f1.equals(f2));
+    void testFeetEquality_DifferentValue() {
+        assertFalse(QuantityMeasurementApp.compareFeet(1.0, 2.0));
     }
 
     @Test
-    public void testEquality_NullComparison() {
-        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-
-        assertFalse(f1.equals(null));
+    void testInchesEquality_SameValue() {
+        assertTrue(QuantityMeasurementApp.compareInches(1.0, 1.0));
     }
 
     @Test
-    public void testEquality_SameReference() {
-        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-
-        assertTrue(f1.equals(f1));
+    void testInchesEquality_DifferentValue() {
+        assertFalse(QuantityMeasurementApp.compareInches(1.0, 2.0));
     }
 }
